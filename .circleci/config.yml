@@ -5,16 +5,17 @@ jobs:
       
       - image: circleci/node:8.10
 
+    working_directory: ~/project/App1/
+
     steps:
       - checkout
       
-      - run: ls
-      - run: pwd
+      - run: yarn install
 
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/repo/App1/
+    working_directory: ~/project/App1/
     steps:
       - add_ssh_keys:
          fingerprints:
