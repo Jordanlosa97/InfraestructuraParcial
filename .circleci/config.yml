@@ -29,12 +29,20 @@ jobs:
          fingerprints:
            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
       - checkout
-      - run:    
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "./App1/package.json" }}            
+            - v1-dependencies-
       - run:
          name: "Ejecucion" 
          command: |
-           yarn run build            
-           scp -o StrictHostKeyChecking=no ./build ec2-user@3.85.234.255:~/App1
+           cd ./App1
+           yarn run build        
+           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.85.234.255:~/App1
+      - save_cache:
+          paths:
+            - ./App1/node_modules
+          key: v1-dependencies-{{ checksum "./App1/package.json" }}
 workflows:
   version: 2
   build: 
