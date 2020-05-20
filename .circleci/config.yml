@@ -39,13 +39,10 @@ workflows:
             branches:
               only:
                 - circleci-project-setup
-      - DevelopmentEnvironment:
-          requires:
-            - build
       - request-testing:
           type: approval
           requires:
-            - DevelopmentEnvironment
+            - build
       - ProductionEnvironment:
           requires:
             - request-testing
