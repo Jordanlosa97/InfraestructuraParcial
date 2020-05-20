@@ -39,8 +39,10 @@ jobs:
       - save_cache:
           paths:
             - ./App1/node_modules
-            - ./App2/node_modules
           key: v1-dependencies-{{ checksum "./App1/package.json" }}
+      - save_cache:
+          paths:
+            - ./App2/node_modules
           key: v2-dependencies-{{ checksum "./App2/package.json" }}
 workflows:
   version: 2
