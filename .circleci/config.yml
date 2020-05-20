@@ -36,7 +36,6 @@ jobs:
       - run:
          name: "Ejecucion " 
          command: |
-           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "mkdir -p App1"
            cd ./App1
            npm install
            yarn run build   
@@ -47,7 +46,7 @@ jobs:
          command: |
            cd ./Configuracion
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.224.198.97:~/
-           ssh -o ec2-user@ec2-54-224-198-97.compute-1.amazonaws.com "kubectl apply -f deployment.yaml"
+           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "kubectl apply -f deployment.yaml"
       - save_cache:
           paths:
             - ./App1/node_modules
