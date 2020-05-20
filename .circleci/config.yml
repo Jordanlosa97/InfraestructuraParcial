@@ -9,7 +9,6 @@ jobs:
 
     steps:
       - checkout
-      - run: yarn init
 
       - restore_cache:
           keys:
