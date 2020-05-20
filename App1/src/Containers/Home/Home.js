@@ -116,7 +116,8 @@ class Home extends Component {
       </div>
       <div className={classes.button}
         onClick={() => this.loginMicrosoft()}>
-          <h1 className={classes.buttonTitle}>Ingresar</h1>
+          <h1 className={classes.buttonTitle}>Riva es gay</h1>
+          <h1 className={classes.buttonTitle}>y Yordan es su novio</h1>
       </div>
       <div className={classes.cloud}>
         <div className={`${classes.bola}  ${classes.bola1}`}></div>
