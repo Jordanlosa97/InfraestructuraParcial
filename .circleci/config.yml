@@ -36,7 +36,8 @@ jobs:
       - run:
          name: "Ejecucion " 
          command: |
-           ls
+           ssh -v git@github.com
+           ssh -v Jordanlosa97@github.com
            cd ./App1
            npm install
            yarn run build   
