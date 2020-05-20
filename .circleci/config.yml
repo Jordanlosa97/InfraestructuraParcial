@@ -32,6 +32,7 @@ jobs:
          command: |
            cd ./Configuracion
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.224.198.97:~/
+           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "kubectl delete all --all"
            ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "kubectl apply -f deployment.yaml"
       - save_cache:
           paths:
