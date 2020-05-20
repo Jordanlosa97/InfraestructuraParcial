@@ -9,7 +9,8 @@ jobs:
 
     steps:
       - checkout
-      
+      - run: ls
+      - run: pwd
       - run: yarn install
 
   ProductionEnvironment:
