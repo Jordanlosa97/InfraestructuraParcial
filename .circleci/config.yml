@@ -9,12 +9,13 @@ jobs:
 
     steps:
       - checkout
+      - run: yarn init
 
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}            
             - v1-dependencies-
-
+      
       - run: yarn install
       - save_cache:
           paths:
