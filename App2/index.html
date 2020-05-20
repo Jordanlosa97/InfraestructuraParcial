@@ -13,6 +13,326 @@
 
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="main.css">
+  <style>
+    /*! HTML5 Boilerplate v7.1.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 1.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+ 
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.container{
+    margin: 5% auto;
+    width: 600px;
+    height: 500px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+
+h1{
+    margin: 0% auto;
+    width: 300px;
+    text-align: center;
+}
+
+.data{
+    padding: 10px 30px;
+    width: 70%;
+    margin: 0% auto;
+}
+
+.data input{
+    display: inline;
+    margin: 10px 0;
+}
+
+.reset{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    border: 2px solid gray;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.operations{
+    text-align: center;
+    padding-top: 20px;
+}
+.operation{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 2px solid gray;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+    font-size: 2rem;
+}
+.operation:hover, .reset:hover{
+    box-shadow: 0 0 5px 5px #888;
+}
+.operation[value="sum"]{
+    background-color: aqua;
+}
+.operation[value="subtract"]{
+    background-color: darksalmon;
+}
+.operation[value="multiply"]{
+    background-color: darkkhaki;
+}
+.operation[value="divide"]{
+    background-color: darkseagreen;
+}
+.operation[value="percentage"]{
+    background-color: goldenrod
+}
+
+ .hidden {
+  display: none !important;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+/*
+* Extends the .visuallyhidden class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+ 
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+   @media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+ 
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+   @media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster */
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+  </style>
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -44,11 +364,49 @@
     </form>
   </div>
 
-  <script src="./js/vendor/modernizr-3.7.1.min.js"></script>
+  <script>
+    sum = () => {
+    var number1 = document.getElementById("first_number").value;
+    var number2 = document.getElementById("second_number").value;
+    document.getElementById("result").innerHTML = parseFloat(number1) + parseFloat(number2);
+} 
+
+substract = () => {
+    var number1 = document.getElementById("first_number").value;
+    var number2 = document.getElementById("second_number").value;
+    document.getElementById("result").innerHTML = parseFloat(number1) - parseFloat(number2);
+} 
+
+multiply = () => {
+    var number1 = document.getElementById("first_number").value;
+    var number2 = document.getElementById("second_number").value;
+    document.getElementById("result").innerHTML = parseFloat(number1) * parseFloat(number2);
+} 
+
+divide = () => {
+    var number1 = document.getElementById("first_number").value;
+    var number2 = document.getElementById("second_number").value;
+    document.getElementById("result").innerHTML = parseFloat(number1) / parseFloat(number2);
+} 
+
+percentage = () => {
+    var number1 = document.getElementById("first_number").value;
+    var number2 = document.getElementById("second_number").value;
+    document.getElementById("result").innerHTML = (parseFloat(number1)*parseFloat(number2))/100;
+} 
+
+document.getElementById('sum').addEventListener('click', sum);
+document.getElementById('substract').addEventListener('click', substract);
+document.getElementById('multiply').addEventListener('click', multiply);
+document.getElementById('divide').addEventListener('click', divide);
+document.getElementById('percentage').addEventListener('click', percentage);
+
+
+  </script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="./js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+<!--   <script>window.jQuery || document.write('<script src="./js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="./js/plugins.js"></script>
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js"></script> -->
 </body>
 
 </html>
