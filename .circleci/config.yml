@@ -1,4 +1,3 @@
-version: 2
 jobs:
   build:
     docker:
@@ -42,7 +41,7 @@ jobs:
            ls --all
            pwd 
            echo "Finished new"              
-           scp -o StrictHostKeyChecking=no ./build ec2-user@3.219.35.180:~/App1
+           scp -o StrictHostKeyChecking=no ./build ec2-user@3.85.234.255:~/App1
 workflows:
   version: 2
   build: 
