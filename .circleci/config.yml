@@ -6,32 +6,34 @@ jobs:
       - image: circleci/node:8.10
     steps:
       - checkout
-      - run: ls ./App1
-      - run: yarn install
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "./App1/package.json" }}            
+          - v1-dependencies-
       - run: 
           name: "Ejecucion" 
           command: |
             cd ./App1
             ls
             yarn install
+      - save_cache:
+          paths:
+            - ./App1/node_modules
+          key: v1-dependencies-{{ checksum "./App1/package.json" }}
 
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/project/App1/
     steps:
       - add_ssh_keys:
          fingerprints:
            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
       - checkout
-      - run: yarn run build   
+      - run:    
       - run:
          name: "Ejecucion" 
          command: |
-           echo "A first hello"
-           ls --all
-           pwd 
-           echo "Finished new"              
+           yarn run build            
            scp -o StrictHostKeyChecking=no ./build ec2-user@3.85.234.255:~/App1
 workflows:
   version: 2
