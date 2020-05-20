@@ -13,6 +13,9 @@ export default class Routing extends Component {
   render(){
     return (
       <BrowserRouter> 
+          <Route exact path="/please" render ={props => (
+              <Home {...props}/>
+          )}/>
           <Route exact path="/" render ={props => (
               <Home {...props}/>
           )}/>  

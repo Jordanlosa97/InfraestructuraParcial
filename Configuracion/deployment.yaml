@@ -106,11 +106,6 @@ data:
 
         AllowOverride All
 
-        Options -MultiViews
-        RewriteEngine On
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteRule ^ index.html [QSA,L]
-
         Require all granted
     </Directory>
 
