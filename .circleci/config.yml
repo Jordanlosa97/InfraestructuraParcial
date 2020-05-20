@@ -12,14 +12,14 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "./App1/package.json" }}            
             - v1-dependencies-
-      - run:
-         name: "Ejecucion App1" 
-         command: |
-           cd ./App1
-           npm install
-           yarn run build   
-           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "mkdir -p App1"
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.224.198.97:~/App1
+##      - run:
+##         name: "Ejecucion App1" 
+##         command: |
+##           cd ./App1
+##           npm install
+##           yarn run build   
+##           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "mkdir -p App1"
+##           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.224.198.97:~/App1
       - run:
          name: "Ejecucion App2" 
          command: |
