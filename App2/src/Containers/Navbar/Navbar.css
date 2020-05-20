@@ -1,0 +1,54 @@
+.titleNav{
+    color: #47525e;
+    font-size: 10px;
+    display: inline;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    font-family: 'Montserrat', sans-serif;
+}   
+.navbar{
+    z-index: 1;
+    background-color: #E3EAFA;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+}
+.BrandLogo{
+    cursor: pointer;
+}
+.UserButton{
+    background-color: #142b64;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    margin-left: .5rem;
+}
+.textName{
+    color: white;
+    text-decoration: none;
+}
+
+.UserButton * {
+    background-color: #142b64;
+    color: white;
+    border-radius: 5px;
+}
+.UserButton a{
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 500px) {
+    body{
+        overflow-y: scroll;
+    }
+    .navbar{
+        z-index: 5;
+    }
+    .font{
+        display: none;
+    }
+}

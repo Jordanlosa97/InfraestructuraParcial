@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800&display=swap');
+
+html, body {
+    max-width: 100%;
+    max-height: max-content;
+    overflow-x: hidden;
+}
+body {
+    position: relative;
+    /*overflow-y: hidden;*/
+}
+
+.TitleNav{
+    color: white;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.Home{
+    /*width: -webkit-fill-available;*/
+    max-width: 100%;
+    height: 100vh;
+}
+
+.icon{
+    z-index: 1;
+    position: relative;
+    top: 15vh;
+    margin: auto;
+    display: block;
+    width: fit-content;
+}
+.logo{
+    width: 119px;
+    height: 119px;
+    margin: auto;
+    display: block;
+}
+.title{
+    font-size: 28px;
+    color: #47525E;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.menu{
+    display: block;
+    width: 442px;
+    position: relative;
+    top: 19vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.titlemenu{
+    width: fit-content;
+    display: block;
+    margin: auto;
+}
+.texttitle{
+    font-size: 24px;
+    color: #152b65;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.lost{
+    position: relative;
+    left: 38px;
+}
+.Option{
+    height: fit-content;
+    width: 202px;
+    display: table-cell;
+    margin: 0 38px 0 0;
+    border-radius: 35px;
+    border: 3px solid #152b65;
+}
+.Option:hover{
+    -webkit-box-shadow: -8px 8px 5px 0px rgba(21,42,101,0.64);
+    -moz-box-shadow: -8px 8px 5px 0px rgba(21,42,101,0.64);
+    box-shadow: -8px 8px 5px 0px rgba(21,42,101,0.64);
+    cursor: pointer;
+}
+.imageOption{
+    width: 136px;
+    border-radius: 25px;
+    margin: 4vh auto 0 auto; 
+    display: block;
+}
+.nameOption{
+    font-size: 20px;
+    margin-top: 4vh;
+    color: #152b65;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    width: 163px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3vh;
+}
+
+.bola{
+    z-index: -1;
+    position: absolute;
+    /*background-color: ##E3EAFA;*/
+    background-color: #E3EAFA;
+    width: 48vw;
+    height: 48vw;
+    /*width: 693px;
+    height: 693px;*/
+    border-radius: 50%;
+}
+.bola1{
+    left: -19vw;
+    top: -538px;
+}
+.bola2{
+    left: 10vw;
+    top: -449px;
+}
+.bola3{
+    left: 46vw;
+    top: -386px;
+}
+.bola4{
+    left: 71vw;
+    top: -449px;
+}
+
+.cell{
+    display: none;
+}
+
+@media only screen and (max-width: 500px){
+    body{
+        overflow-y: scroll;
+    }
+    .bola1{
+        display: none;
+    }
+    
+    .bola2{
+        left: -6vw;
+        top: -65px;
+        width: 71vw;
+        height: 53vw;
+    }
+    .bola3{
+        left: 47vw;
+        top: -35px;
+        width: 62vw;
+        height: 58vw;
+    }
+    .bola4{
+        display: none;
+    }
+
+    .icon{
+        top: 10vh;
+    }
+    .logo{
+        width: 26vw;
+        height: 26vw;
+    }
+    .title{
+        font-size: 6vw;
+    }
+
+    .menu{
+        width: 90%;
+        top: 15vh;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+
+    }
+    .texttitle{
+        font-size: 6vw;
+    }
+    .titlemenu{
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        text-align: center;
+        margin-bottom: 7vh;
+    }
+
+    .Option{
+        height: fit-content;
+        width: 100%;
+        display: block;
+        margin-bottom: 5vh;
+        background-color: #152b65;
+    }
+    .imageOption{
+        width: 50%;
+        margin: 0; 
+        display: inline-block;
+        border-radius: 35px;
+        height: 100%;
+    }
+    .nameOption{
+        font-size: 5vw;
+        color: #ffffff;
+        font-weight: 500;
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        width: 50%;
+        top: 1.6vh;
+    }
+    .lost{
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .web{
+        display: none;
+    }
+    .cell{
+        display: inline-block;
+        width: 50%;
+    }
+    .imageOption{
+        width: 45%;
+    }
+    .nameOption{
+        width: 55%;
+    }
+    .cell{
+        width: 55%;
+    }
+    .up{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .down{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
