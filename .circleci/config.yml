@@ -24,6 +24,7 @@ jobs:
          name: "Ejecucion App2" 
          command: |
            cd ./App2   
+           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "sudo rm -rf App2"
            ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "mkdir -p App2"
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.224.198.97:~/App2
       - run:
