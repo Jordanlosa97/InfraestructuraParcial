@@ -1,26 +1,5 @@
 version: 2
 jobs:
-  build:
-    docker:
-      
-      - image: circleci/node:8.10
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "./App1/package.json" }}            
-            - v1-dependencies-
-      - run: 
-          name: "Ejecucion" 
-          command: |
-            cd ./App1
-            ls
-            yarn install
-      - save_cache:
-          paths:
-            - ./App1/node_modules
-          key: v1-dependencies-{{ checksum "./App1/package.json" }}
-
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
@@ -32,8 +11,9 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "./App1/package.json" }}            
-            - v1-dependencies-{{ checksum "./App2/package.json" }}            
             - v1-dependencies-
+            - v2-dependencies-{{ checksum "./App2/package.json" }}            
+            - v2-dependencies-
       - run:
          name: "Ejecucion App1" 
          command: |
@@ -61,7 +41,7 @@ jobs:
             - ./App1/node_modules
             - ./App2/node_modules
           key: v1-dependencies-{{ checksum "./App1/package.json" }}
-          key: v1-dependencies-{{ checksum "./App2/package.json" }}
+          key: v2-dependencies-{{ checksum "./App2/package.json" }}
 workflows:
   version: 2
   build: 
