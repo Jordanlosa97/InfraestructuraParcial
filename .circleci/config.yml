@@ -9,8 +9,7 @@ jobs:
 
     steps:
       - checkout
-      - run: cd ./App1
-      - run: ls
+      - run: ls ./App1
       - run: pwd
       - run: yarn install
 
