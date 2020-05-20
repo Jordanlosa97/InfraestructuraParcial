@@ -37,7 +37,7 @@ jobs:
          name: "Ejecucion" 
          command: |
            cd ./App1
-           yarn install
+           npm install
            yarn run build        
            scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.85.234.255:~/App1
       - save_cache:
