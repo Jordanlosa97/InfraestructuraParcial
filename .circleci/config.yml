@@ -9,17 +9,8 @@ jobs:
 
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}            
-            - v1-dependencies-
       
       - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
 
   ProductionEnvironment:
     docker:
@@ -30,10 +21,6 @@ jobs:
          fingerprints:
            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
       - run: yarn run build   
       - run:
          name: "Ejecucion" 
