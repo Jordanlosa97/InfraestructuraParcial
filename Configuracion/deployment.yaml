@@ -549,8 +549,7 @@ data:
                 proxy_pass         http://localhost:5000;
             }
             location /please {
-                proxy_pass         http://localhost:80/index.html;
-                proxy_redirect     off;
+                proxy_pass         http://localhost:80;
             }
         }
     }
