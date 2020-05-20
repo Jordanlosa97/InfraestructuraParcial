@@ -39,7 +39,7 @@ jobs:
            cd ./App1
            npm install
            yarn run build        
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.85.234.255:~/App1
+           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.224.198.97:~/App1
       - save_cache:
           paths:
             - ./App1/node_modules
