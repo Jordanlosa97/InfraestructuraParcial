@@ -12,8 +12,6 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "./App1/package.json" }}            
             - v1-dependencies-
-            - v2-dependencies-{{ checksum "./App2/package.json" }}            
-            - v2-dependencies-
       - run:
          name: "Ejecucion App1" 
          command: |
@@ -25,11 +23,9 @@ jobs:
       - run:
          name: "Ejecucion App2" 
          command: |
-           cd ./App2
-           npm install
-           yarn run build   
+           cd ./App2   
            ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97 "mkdir -p App2"
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.224.198.97:~/App2
+           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.224.198.97:~/App2
       - run:
          name: "Archivo yaml" 
          command: |
@@ -40,10 +36,6 @@ jobs:
           paths:
             - ./App1/node_modules
           key: v1-dependencies-{{ checksum "./App1/package.json" }}
-      - save_cache:
-          paths:
-            - ./App2/node_modules
-          key: v2-dependencies-{{ checksum "./App2/package.json" }}
 workflows:
   version: 2
   build: 
