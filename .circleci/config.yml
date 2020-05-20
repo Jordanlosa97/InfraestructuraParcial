@@ -5,12 +5,10 @@ jobs:
       
       - image: circleci/node:8.10
 
-    working_directory: ~/repo/App1/
-
     steps:
       - checkout
       
-      - run: yarn install
+      - run: ls
 
   ProductionEnvironment:
     docker:
