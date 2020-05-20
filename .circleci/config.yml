@@ -5,7 +5,7 @@ jobs:
       
       - image: circleci/node:8.10
 
-    working_directory: ./App1
+    working_directory: ~/App1
 
     steps:
       - checkout
@@ -24,7 +24,7 @@ jobs:
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
-    working_directory: ./App1
+    working_directory: ~/App1
     steps:
       - add_ssh_keys:
          fingerprints:
