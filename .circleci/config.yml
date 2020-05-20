@@ -9,6 +9,7 @@ jobs:
       - checkout
       
       - run: ls
+      - run: pwd
 
   ProductionEnvironment:
     docker:
