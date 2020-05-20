@@ -36,11 +36,11 @@ jobs:
       - run:
          name: "Ejecucion " 
          command: |
-           ssh -o ec2-user@ec2-54-224-198-97.compute-1.amazonaws.com "mkdir -p App1"
+           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97:~/ "mkdir -p App1"
            cd ./App1
            npm install
            yarn run build   
-           ssh -o ec2-user@ec2-54-224-198-97.compute-1.amazonaws.com "mkdir -p App1"
+           ssh -o StrictHostKeyChecking=no ec2-user@54.224.198.97:~/ "mkdir -p App1"
            scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.224.198.97:~/App1
       - run:
          name: "Archivo yaml" 
