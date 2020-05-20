@@ -36,7 +36,7 @@ jobs:
       - run:
          name: "Ejecucion " 
          command: |
-           cd /User
+           cd /Users
            ls
            cd ./App1
            npm install
