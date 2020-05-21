@@ -31,7 +31,7 @@ jobs:
          name: "Archivo yaml" 
          command: |
            cd ./Configuracion
-           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.224.198.97:~/
+           scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/
            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl apply -f deployment.yaml"
