@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  DevelopmentEnvironment:
+  ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
     steps:
@@ -39,57 +39,8 @@ jobs:
           paths:
             - ./App1/node_modules
           key: v1-dependencies-{{ checksum "./App1/package.json" }}
-  ProductionEnvironment:
-    docker:
-        - image: circleci/node:8.10
-    steps:
-        - add_ssh_keys:
-            fingerprints:
-            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
-        - checkout
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "./App1/package.json" }}            
-            - v1-dependencies-
-        - run:
-            name: "Ejecucion App1" 
-            command: |
-              cd ./App1
-              npm install
-              yarn run build   
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App1"
-              scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.216.132.70:~/App1
-        - run:
-            name: "Ejecucion App2" 
-            command: |
-              cd ./App2   
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "sudo rm -rf App2"
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App2"
-              scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/App2
-        - run:
-            name: "Archivo yaml" 
-            command: |
-              cd ./Configuracion
-              scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
-              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl apply -f deployment.yaml"
-        - save_cache:
-            paths:
-            - ./App1/node_modules
-            key: v1-dependencies-{{ checksum "./App1/package.json" }}
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
   version: 2
   build: 
     jobs:
-      - DevelopmentEnvironment
-      - request-testing:
-          type: approval
-          requires:
-            - DevelopmentEnvironment
-      - ProductionEnvironment:
-          requires:
-            - request-testing
+      - ProductionEnvironment
