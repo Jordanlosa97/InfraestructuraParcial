@@ -79,14 +79,17 @@ jobs:
             - ./App1/node_modules
             key: v1-dependencies-{{ checksum "./App1/package.json" }}
 workflows:
-    # Name the workflow "welcome"
-    welcome:
-        # Run the welcome/run job in its own container
-    version: 2
-    build: 
-        jobs:
-        - request-testing:
-            type: approval
-        - ProductionEnvironment:
-            requires:
-                - request-testing
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
+  version: 2
+  build: 
+    jobs:
+      - DevelopmentEnvironment
+      - request-testing:
+          type: approval
+          requires:
+            - DevelopmentEnvironment
+      - ProductionEnvironment:
+          requires:
+            - request-testing
