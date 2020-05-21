@@ -23,8 +23,7 @@ jobs:
       - run:
          name: "Ejecucion App2" 
          command: |
-           cd ./App2   
-           ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "sudo rm -rf App2"
+           cd ./App2
            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App2"
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/App2
       - save_cache:
@@ -54,8 +53,7 @@ jobs:
       - run:
          name: "Ejecucion App2" 
          command: |
-           cd ./App2   
-           ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "sudo rm -rf App2"
+           cd ./App2
            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App2"
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/App2
       - save_cache:
