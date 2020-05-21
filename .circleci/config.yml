@@ -54,26 +54,26 @@ jobs:
         - run:
             name: "Ejecucion App1" 
             command: |
-            cd ./App1
-            npm install
-            yarn run build   
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App1"
-            scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.216.132.70:~/App1
+              cd ./App1
+              npm install
+              yarn run build   
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App1"
+              scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.216.132.70:~/App1
         - run:
             name: "Ejecucion App2" 
             command: |
-            cd ./App2   
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "sudo rm -rf App2"
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App2"
-            scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/App2
+              cd ./App2   
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "sudo rm -rf App2"
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "mkdir -p App2"
+              scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/App2
         - run:
             name: "Archivo yaml" 
             command: |
-            cd ./Configuracion
-            scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
-            ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl apply -f deployment.yaml"
+              cd ./Configuracion
+              scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.216.132.70:~/
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl delete all --all"
+              ssh -o StrictHostKeyChecking=no ec2-user@3.216.132.70 "kubectl apply -f deployment.yaml"
         - save_cache:
             paths:
             - ./App1/node_modules
