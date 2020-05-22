@@ -8,10 +8,6 @@ jobs:
          fingerprints:
            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "./App1/package.json" }}            
-            - v1-dependencies-
       - run:
          name: "Ejecucion App1" 
          command: |
@@ -26,10 +22,6 @@ jobs:
            cd ./App2
            ssh -o StrictHostKeyChecking=no ec2-user@54.173.3.127 "mkdir -p App2"
            scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.173.3.127:~/App2
-      - save_cache:
-          paths:
-            - ./App1/node_modules
-          key: v1-dependencies-{{ checksum "./App1/package.json" }}
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
@@ -38,10 +30,6 @@ jobs:
          fingerprints:
            - "a0:10:07:ed:9d:01:87:51:ea:45:05:1d:19:1f:90:70"
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "./App1/package.json" }}            
-            - v1-dependencies-
       - run:
          name: "Ejecucion App1" 
          command: |
@@ -49,17 +37,13 @@ jobs:
            npm install
            yarn run build   
            ssh -o StrictHostKeyChecking=no ec2-user@54.147.61.160 "mkdir -p App1"
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.147.61.160 :~/App1
+           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.147.61.160:~/App1
       - run:
          name: "Ejecucion App2" 
          command: |
            cd ./App2
            ssh -o StrictHostKeyChecking=no ec2-user@54.147.61.160 "mkdir -p App2"
-           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.147.61.160 :~/App2
-      - save_cache:
-          paths:
-            - ./App1/node_modules
-          key: v1-dependencies-{{ checksum "./App1/package.json" }}
+           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.147.61.160:~/App2
 workflows:
   version: 2
   build: 
