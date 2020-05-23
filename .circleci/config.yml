@@ -14,14 +14,14 @@ jobs:
            cd ./App1
            npm install
            yarn run build   
-           ssh -o StrictHostKeyChecking=no ec2-user@54.173.3.127 "mkdir -p App1"
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.173.3.127:~/App1
+           ssh -o StrictHostKeyChecking=no ec2-user@3.235.152.80 "mkdir -p App1"
+           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.235.152.80:~/App1
       - run:
          name: "Ejecucion App2" 
          command: |
            cd ./App2
-           ssh -o StrictHostKeyChecking=no ec2-user@54.173.3.127 "mkdir -p App2"
-           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.173.3.127:~/App2
+           ssh -o StrictHostKeyChecking=no ec2-user@3.235.152.80 "mkdir -p App2"
+           scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.235.152.80:~/App2
   ProductionEnvironment:
     docker:
       - image: circleci/node:8.10
@@ -36,14 +36,14 @@ jobs:
            cd ./App1
            npm install
            yarn run build   
-           ssh -o StrictHostKeyChecking=no ec2-user@54.147.61.160 "mkdir -p App1"
-           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@54.147.61.160:~/App1
+           ssh -o StrictHostKeyChecking=no ec2-user@3.94.81.164 "mkdir -p App1"
+           scp -o StrictHostKeyChecking=no -r ./build/* ec2-user@3.94.81.164:~/App1
       - run:
          name: "Ejecucion App2" 
          command: |
            cd ./App2
-           ssh -o StrictHostKeyChecking=no ec2-user@54.147.61.160 "mkdir -p App2"
-           scp -o StrictHostKeyChecking=no -r ./* ec2-user@54.147.61.160:~/App2
+           ssh -o StrictHostKeyChecking=no ec2-user@3.94.81.164 "mkdir -p App2"
+           scp -o StrictHostKeyChecking=no -r ./* ec2-user@3.94.81.164:~/App2
 workflows:
   version: 2
   build: 
