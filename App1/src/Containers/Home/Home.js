@@ -112,7 +112,7 @@ class Home extends Component {
     <div className={classes.Home}>
       <div className={classes.icon}>
         <img alt={'ds'} className={classes.logo} src={logo}></img>
-        <h1 className={classes.title}>B-Sabana</h1>
+        <h1 className={classes.title}>Infraestructura</h1>
       </div>
       <div className={classes.button}
         onClick={() => this.loginMicrosoft()}>
